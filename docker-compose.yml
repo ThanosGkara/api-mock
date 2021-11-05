@@ -1,0 +1,75 @@
+version: "3.9"
+services:
+  service_1_1:
+    environment:
+      - MOCK="Mock Service1 1st backend"
+    image: 'apimock:v1'
+    ports:
+      - 8090:80
+    networks:
+      - service_1_1
+
+  service_1_2:
+    environment:
+      - MOCK="Mock Service1 2nd backend"
+    image: 'apimock:v1'
+    ports:
+      - 8091:80
+    networks:
+      - service_1_2
+    
+  service_1_3:
+    environment:
+      - MOCK="Mock Service1 3rd backend"
+    image: 'apimock:v1'
+    ports:
+      - 8092:80
+    networks:
+      - service_1_3
+
+  service_2_1:
+    environment:
+      - MOCK="Mock Service2 1st backend"
+    image: 'apimock:v1'
+    ports:
+      - 9090:80
+    networks:
+      - service_2_1
+
+  service_2_2:
+    environment:
+      - MOCK="Mock Service2 2nd backend"
+    image: 'apimock:v1'
+    ports:
+      - 9091:80
+    networks:
+      - service_2_2
+  
+  service_2_3:
+    environment:
+      - MOCK="Mock Service2 3rd backend"
+    image: 'apimock:v1'
+    ports:
+      - 9092:80
+    networks:
+      - service_2_3
+
+networks:
+  service_1_1:
+    name: service_1_1
+    external: false
+  service_1_2:
+    name: service_1_2
+    external: false
+  service_1_3:
+    name: service_1_3
+    external: false
+  service_2_1:
+    name: service_2_1
+    external: false
+  service_2_2:
+    name: service_2_2
+    external: false
+  service_2_3:
+    name: service_2_3
+    external: false
